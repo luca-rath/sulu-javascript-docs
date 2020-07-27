@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 env:
     LATEST_VERSION: 'feature/tabs-dropdown'
-    AVAILABLE_VERSIONS: '["feature/tabs-dropdown"]'
+    AVAILABLE_VERSIONS: '["feature/tabs-dropdown", "feature/circle-selection"]'
 
 jobs:
     build-styleguide:
@@ -15,6 +15,7 @@ jobs:
             matrix:
                 version:
                     - { ref: 'feature/tabs-dropdown', version: 'feature/tabs-dropdown' }
+                    - { ref: 'feature/circle-selection', version: 'feature/circle-selection' }
 
         steps:
             - run: echo Building styleguide for version "${{ matrix.version.version }}" from ref "${{ matrix.version.ref }}"
